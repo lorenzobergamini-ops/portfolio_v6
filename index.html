@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio di Lorenzo Bergamini</title>
+<link rel="icon" type="image/png" href="3ee2b6d2-7ea5-4450-b080-88432af40f19.png" />
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    body {
+        transition: background-color 0.7s ease, color 0.7s ease;
+    }
+    #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        background: #000;
+    }
+    .progetto {
+        transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+        transform: rotate(-6deg);
+        border-radius: 0.75rem;
+        box-shadow: 0 10px 15px -3px rgb(15 23 42 / 0.7);
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .progetto:hover,
+    .progetto:focus {
+        transform: rotate(0deg) scale(1.05);
+        box-shadow: 0 25px 50px -12px rgb(14 165 233 / 0.75);
+        outline: none;
+        z-index: 20;
+    }
+    .progetto img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(90%);
+        transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+    }
+    .progetto:hover img,
+    .progetto:focus img {
+        filter: brightness(100%);
+        transform: scale(1.1);
+    }
+    .overlay-testo {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 1rem;
+        background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        color: #cbd5e1;
+        font-weight: 600;
+        font-size: 1rem;
+        pointer-events: none;
+        user-select: none;
+        transition: color 0.3s ease;
+    }
+    .progetto:hover .overlay-testo,
+    .progetto:focus .overlay-testo {
+        color: #38bdf8;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+
+    [data-theme="light"] body {
+        background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+        color: #1e293b;
+    }
+    [data-theme="light"] #particles-js {
+        background: #e0f2fe;
+    }
+    [data-theme="light"] .overlay-testo {
+        color: #475569;
+    }
+    [data-theme="light"] .progetto:hover .overlay-testo,
+    [data-theme="light"] .progetto:focus .overlay-testo {
+        color: #0ea5e9;
+    }
+    [data-theme="light"] #feedback .max-w-xl {
+        background-color: #fff;
+    }
+    [data-theme="light"] #feedback input,
+    [data-theme="light"] #feedback textarea {
+        background-color: #fff;
+        color: #1e293b;
+    }
+    [data-theme="light"] .skill-random-text span {
+        color: rgba(0, 0, 0, 0.08); 
+    }
+
+    [data-theme="light"] .skill-item {
+        background: linear-gradient(135deg, #a7d9ff, #6cb3fa);
+        color: #1e293b;
+    }
+    [data-theme="light"] .skill-item::before {
+        background: linear-gradient(to right, rgba(14, 165, 233, 0.4), transparent);
+    }
+    [data-theme="light"] .skill-item::after {
+        background: linear-gradient(to left, rgba(34, 197, 94, 0.4), transparent);
+    }
+
+
+    #icon-tema {
+        transition: transform 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+        from, to { border-color: transparent; }
+        50% { border-color: currentColor; }
+    }
+
+    @keyframes text-glow {
+        0% { text-shadow: 0 0 5px rgba(14, 165, 233, 0.5), 0 0 10px rgba(14, 165, 233, 0.3); }
+        50% { text-shadow: 0 0 15px rgba(14, 165, 233, 0.8), 0 0 25px rgba(14, 165, 233, 0.6); }
+        100% { text-shadow: 0 0 5px rgba(14, 165, 233, 0.5), 0 0 10px rgba(14, 165, 233, 0.3); }
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 1s ease-out forwards;
+        opacity: 0;
+    }
+
+    .animate-typing {
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: .15em solid currentColor;
+        animation: typing 2s steps(40, end) forwards, blink-caret .75s step-end infinite;
+        width: 0;
+    }
+
+    .animate-text-glow {
+        animation: text-glow 2s ease-in-out infinite;
+    }
+
+    [data-theme="light"] .animate-text-glow {
+        animation: text-glow-light 2s ease-in-out infinite;
+    }
+
+    @keyframes text-glow-light {
+        0% { text-shadow: 0 0 5px rgba(0, 150, 255, 0.3), 0 0 10px rgba(0, 150, 255, 0.2); }
+        50% { text-shadow: 0 0 15px rgba(0, 150, 255, 0.6), 0 0 25px rgba(0, 150, 255, 0.4); }
+        100% { text-shadow: 0 0 5px rgba(0, 150, 255, 0.3), 0 0 10px rgba(0, 150, 255, 0.2); }
+    }
+
+    .skill-item {
+        position: relative;
+        overflow: hidden; 
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+        filter: blur(5px);
+        z-index: 1;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+    }
+
+    [data-theme="dark"] .skill-item {
+        background: linear-gradient(135deg, #222222, #000000); 
+        color: white; 
+    }
+
+    .skill-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes slideInUpFadeInBlur {
+        from {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            filter: blur(5px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0px);
+        }
+    }
+
+    .skill-item.animate-in {
+        animation: slideInUpFadeInBlur 0.7s ease-out forwards;
+    }
+
+    .skill-random-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-size: 0.7rem; 
+        line-height: 0.9;
+        opacity: 0;
+        transform: scale(0.8) translate(-10px, -10px);
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        pointer-events: none;
+        z-index: 0;
+        padding: 5px; 
+        color: rgba(255, 255, 255, 0.08);
+    }
+
+    .skill-random-text span {
+        opacity: 0.1;
+        transition: opacity 0.1s ease-out; 
+        font-weight: bold; 
+    }
+
+    .skill-item:hover .skill-random-text {
+        opacity: 1;
+        transform: scale(1) translate(0, 0);
+    }
+
+    .skill-item::before,
+    .skill-item::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 30%;
+        opacity: 0;
+        transition: opacity 0.3s ease-out;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .skill-item::before {
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+        background: linear-gradient(to right, rgba(14, 165, 233, 0.4), transparent);
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    }
+
+    .skill-item::after {
+        bottom: 0;
+        right: 0;
+        transform: translateY(100%);
+        background: linear-gradient(to left, rgba(34, 197, 94, 0.4), transparent);
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    }
+
+    .skill-item:hover::before {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+    .skill-item:hover::after {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+    .skill-item h3 {
+        position: relative;
+        z-index: 2;
+    }
+    .social-links {
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .social-links img {
+            width: 60px;
+            height: 60px;
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), filter 0.4s ease;
+            filter: grayscale(20%);
+        }
+
+        .social-links img:hover {
+            transform: scale(1.3) rotate(15deg);
+            filter: grayscale(0%) drop-shadow(0 5px 15px var(--shadow-light));
+        }
+        .social-links img {
+                width: 45px;
+                height: 45px;
+        }
+    
+
+.hamburger-inner {
+    position: relative; 
+}
+
+.hamburger-inner .dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+
+#hamburger-button .hamburger-inner.active {
+
+    transform: rotate(180deg); 
+    border-radius: 9999px;
+    background-color: theme('colors.sky.400'); 
+}
+
+#hamburger-button .hamburger-inner.active .dot {
+    transform: translate(-50%, -50%) rotate(90deg) scaleX(3); 
+    opacity: 0; 
+}
+
+#hamburger-button .hamburger-inner.active .dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%; 
+    height: 2px;
+    background-color: theme('colors.black'); 
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 1; 
+}
+
+#hamburger-button .hamburger-inner.active .dot::before,
+#hamburger-button .hamburger-inner.active .dot::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit; 
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, bottom 0.3s ease-in-out;
+}
+
+#hamburger-button .hamburger-inner.active .dot::before {
+    transform: rotate(45deg);
+}
+
+#hamburger-button .hamburger-inner.active .dot::after {
+    transform: rotate(-45deg);
+}
+
+#mobile-menu-close-button .hamburger-inner.active {
+    background-color: theme('colors.sky.400'); 
+}
+#mobile-menu-close-button .hamburger-inner.active .dot {
+    opacity: 0;
+}
+
+#mobile-menu-overlay {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); 
+}
+
+#mobile-menu-overlay.open {
+    display: flex;
+    opacity: 1;
+}
+
+#mobile-menu-overlay ul li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+#mobile-menu-overlay.open ul li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#mobile-menu-overlay.open ul li:nth-child(1) { transition-delay: 0.1s; }
+#mobile-menu-overlay.open ul li:nth-child(2) { transition-delay: 0.15s; }
+#mobile-menu-overlay.open ul li:nth-child(3) { transition-delay: 0.2s; }
+#mobile-menu-overlay.open ul li:nth-child(4) { transition-delay: 0.25s; }
+#mobile-menu-overlay.open ul li:nth-child(5) { transition-delay: 0.3s; }
+#mobile-menu-overlay.open ul li:nth-child(6) { transition-delay: 0.35s; }
+
+
+#mobile-menu-overlay .mt-10 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    transition-delay: 0.4s;
+}
+
+#mobile-menu-overlay.open .mt-10 {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+<body class="transition-colors duration-700 bg-slate-900 text-slate-200">
+<div id="particles-js"></div>
+<div class="linea"></div>
+<div class="led" id="led"></div>
+
+<header class="fixed top-0 left-0 w-full backdrop-blur-sm bg-black/30 z-50 shadow-md">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center p-4 md:px-8">
+        <a href="#home" class="text-2xl font-extrabold tracking-wide select-none cursor-pointer text-sky-400 hover:text-sky-500 transition-colors">Lorenzo Bergamini</a>
+
+        <ul class="hidden md:flex space-x-8 text-lg font-medium" id="main-nav">
+            <li><a href="#home" class="hover:text-sky-400 transition-colors text-slate-200 hover:text-sky-400" data-nav-text="menuHome">Home</a></li>
+            <li><a href="#progetti" class="hover:text-sky-400 transition-colors text-slate-200 hover:text-sky-400" data-nav-text="menuProgetti">Progetti</a></li>
+            <li><a href="#about" class="hover:text-sky-400 transition-colors text-slate-200 hover:text-sky-400" data-nav-text="menuAbout">Chi Sono</a></li>
+            <li><a href="#skills" class="hover:text-sky-400 transition-colors text-slate-200 hover:text-sky-400" data-nav-text="menuSkills">Competenze</a></li>
+            <li><a href="#contatti" class="hover:text-sky-400 transition-colors text-slate-200 hover:text-sky-400" data-nav-text="menuContatti">Contatti</a></li>
+            <li><a href="#feedback" class="hover:text-sky-400 transition-colors text-slate-200 hover:text-sky-400" data-nav-text="menuFeedback">Feedback</a></li>
+        </ul>
+
+        <div class="flex items-center space-x-4">
+            <button id="btn-lingua" aria-label="Cambia lingua" class="bg-slate-700/40 hover:bg-slate-700/70 text-slate-200 rounded-lg px-3 py-1 font-semibold transition-colors flex items-center gap-2 select-none focus:outline-none focus:ring-2 focus:ring-sky-400">
+                <span id="lingua-label">IT</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+                </svg>
+            </button>
+            <button id="btn-tema" aria-label="Cambia tema" class="bg-slate-700/40 hover:bg-slate-700/70 text-slate-200 rounded-full w-10 h-10 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400">
+                <svg id="icon-tema" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2m11-11h-2M3 12H1m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />
+                </svg>
+            </button>
+            
+            <button id="hamburger-button" class="md:hidden p-2 focus:outline-none relative z-50">
+                <div class="hamburger-inner w-6 h-6 rounded-full bg-slate-200 dark:bg-sky-400 flex items-center justify-center transition-all duration-300 ease-in-out">
+                    <div class="dot w-1.5 h-1.5 rounded-full bg-black dark:bg-white transition-all duration-300 ease-in-out"></div>
+                </div>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<div id="mobile-menu-overlay" class="fixed inset-0 z-[100] bg-black/90 dark:bg-gray-950/90 hidden opacity-0 transition-opacity duration-300 ease-in-out flex flex-col items-center justify-center">
+    <button id="mobile-menu-close-button" class="absolute top-4 right-4 p-2 focus:outline-none text-white z-50">
+        <div class="hamburger-inner active w-6 h-6 rounded-full bg-white dark:bg-sky-400 flex items-center justify-center transition-all duration-300 ease-in-out">
+            <div class="dot w-1.5 h-1.5 rounded-full bg-black dark:bg-white transition-all duration-300 ease-in-out"></div>
+        </div>
+    </button>
+
+    <ul class="flex flex-col text-center text-white text-3xl font-bold space-y-6">
+        <li><a href="#home" class="hover:text-sky-400 transition-colors block" data-nav-text="menuHome">Home</a></li>
+        <li><a href="#progetti" class="hover:text-sky-400 transition-colors block" data-nav-text="menuProgetti">Progetti</a></li>
+        <li><a href="#about" class="hover:text-sky-400 transition-colors block" data-nav-text="menuAbout">Chi Sono</a></li>
+        <li><a href="#skills" class="hover:text-sky-400 transition-colors block" data-nav-text="menuSkills">Competenze</a></li>
+        <li><a href="#contatti" class="hover:text-sky-400 transition-colors block" data-nav-text="menuContatti">Contatti</a></li>
+        <li><a href="#feedback" class="hover:text-sky-400 transition-colors block" data-nav-text="menuFeedback">Feedback</a></li>
+    </ul>
+
+    <div class="mt-10 flex space-x-6">
+        <button id="mobile-btn-lingua" aria-label="Cambia lingua" class="bg-slate-700/40 hover:bg-slate-700/70 text-slate-200 rounded-lg px-3 py-1 font-semibold transition-colors flex items-center gap-2 select-none focus:outline-none focus:ring-2 focus:ring-sky-400">
+            <span id="mobile-lingua-label">IT</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+            </svg>
+        </button>
+        <button id="mobile-btn-tema" aria-label="Cambia tema" class="bg-slate-700/40 hover:bg-slate-700/70 text-slate-200 rounded-full w-10 h-10 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400">
+            <svg id="mobile-icon-tema" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2m11-11h-2M3 12H1m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />
+            </svg>
+        </button>
+    </div>
+</div>
+</br >
+<main class="pt-20 max-w-7xl mx-auto px-6 md:px-12 space-y-28">
+    <section id="home" class="min-h-[calc(100vh-5rem)] flex flex-col justify-center items-center text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 animate-fade-in" data-translate="homeTitolo">Ciao, sono <span class="text-sky-400 animate-text-glow">Lorenzo Bergamini</span></h1>
+        <p class="max-w-xl text-lg md:text-2xl animate-fade-in" style="animation-delay: 1s;" data-translate="homeDescrizione"></p>
+    </section>
+    </br >
+    <section id="progetti" class="space-y-10">
+        </br >
+        <h2 class="text-4xl font-bold text-center mb-8" data-translate="progettiTitolo">Progetti</h2>
+        <div class="flex flex-wrap justify-center gap-8">
+            <article tabindex="0" role="group" aria-labelledby="titolo-progetto1" aria-describedby="desc-progetto1" class="progetto relative w-80 h-44 bg-gradient-to-tr from-slate-800 to-slate-900 shadow-lg rounded-xl cursor-pointer transition-transform duration-500 focus:outline-none focus:ring-4 focus:ring-sky-500">
+                <a href="https://lorenzobergamini-ops.github.io/ProgPacMan.github.io/" target="_blank"><img src="pac.man2_.jpg" alt="Progetto PacMan" /></a>
+                <div id="desc-progetto1" class="overlay-testo"></div>
+            </article>
+            <article tabindex="0" role="group" aria-labelledby="titolo-progetto2" aria-describedby="desc-progetto2" class="progetto relative w-80 h-44 bg-gradient-to-tr from-slate-800 to-slate-900 shadow-lg rounded-xl cursor-pointer transition-transform duration-500 focus:outline-none focus:ring-4 focus:ring-sky-500">
+                <a href="http://127.0.0.1:5500/3ee2b6d2-7ea5-4450-b080-88432af40f19.png" target="_blank"><img src="3ee2b6d2-7ea5-4450-b080-88432af40f19.png" alt="Immagine Sito" /></a>
+                <div id="desc-progetto2" class="overlay-testo"></div>
+            </article>
+            <article tabindex="0" role="group" aria-labelledby="titolo-progetto3" aria-describedby="desc-progetto3" class="progetto relative w-80 h-44 bg-gradient-to-tr from-slate-800 to-slate-900 shadow-lg rounded-xl cursor-pointer transition-transform duration-500 focus:outline-none focus:ring-4 focus:ring-sky-500">
+                <a href="https://github.com/lorenzobergamini-ops" target="_blank"><img src="github.jpeg" alt="GithubPersonale" /></a>
+                <div id="desc-progetto3" class="overlay-testo"></div>
+            </article>
+        </div>
+    </section>
+    </br >
+    <section id="about" class="max-w-4xl mx-auto text-center px-4">
+        </br >
+        </br >
+        </br >
+        <h2 class="text-4xl font-bold mb-6" data-translate="aboutTitolo">Chi Sono</h2>
+        <p class="text-lg leading-relaxed text-justify" data-translate="aboutDescrizione"></p>
+    </section>
+    </br >
+    <section id="skills" class="max-w-4xl mx-auto text-center px-4 py-12">
+        </br >
+        <h2 class="text-4xl font-bold mb-8" data-translate="skillsTitle">Le Mie Competenze</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-lg">
+            <div class="skill-item p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                <h3 class="font-semibold" data-skill-name="skillHTML">HTML</h3>
+                <div class="skill-random-text"></div>
+            </div>
+            <div class="skill-item p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                <h3 class="font-semibold" data-skill-name="skillCSS">CSS</h3>
+                <div class="skill-random-text"></div>
+            </div>
+            <div class="skill-item p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                <h3 class="font-semibold" data-skill-name="skillJS">JavaScript</h3>
+                <div class="skill-random-text"></div>
+            </div>
+            <div class="skill-item p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                <h3 class="font-semibold" data-skill-name="skillPython">Python</h3>
+                <div class="skill-random-text"></div>
+            </div>
+            <div class="skill-item p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                <h3 class="font-semibold" data-skill-name="skillJava">Java</h3>
+                <div class="skill-random-text"></div>
+            </div>
+            <div class="skill-item p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                <h3 class="font-semibold" data-skill-name="skillGit">Git/GitHub</h3>
+                <div class="skill-random-text"></div>
+            </div>
+            <div class="skill-item p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                <h3 class="font-semibold" data-skill-name="skillNetworking">Networking</h3>
+                <div class="skill-random-text"></div>
+            </div>
+            <div class="skill-item p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                <h3 class="font-semibold" data-skill-name="skillCybersecurity">Cybersecurity Basics</h3>
+                <div class="skill-random-text"></div>
+            </div>
+        </div>
+    </section>
+    </br >
+    <section id="contatti" class="max-w-4xl mx-auto text-center px-4">
+        </br >
+        </br >
+        </br >
+        <h2 class="text-4xl font-bold mb-6" data-translate="contattiTitolo">Contatti</h2>
+        <p class="mb-3" data-translate="contattiDescrizione"></p>
+        <ul class="social-links flex justify-center space-x-4">
+            <li>
+
+                
+                <a href="https://github.com/lorenzobergamini-ops" target="_blank" class="flex items-center gap-2 text-blue-700 dark:text-blue-400">
+                    <img src="github-icon-logo-png_seeklogo-503247.png" alt="GitHub" class="w-5 h-5" />
+                </a>
+            </li>
+            <li>
+                <a href="https://instagram.com/lorenzo.bergamini" target="_blank" class="flex items-center gap-2 text-blue-700 dark:text-blue-400">
+                    <img src="instagram.png" alt="Instagram" class="w-5 h-5" />
+                </a>
+            </li>
+            <li>
+                <a href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRmTpKDCMwXHBTqgvWhgjFsRGZPHZSsGpVTVmCGtttXbZnrvCGWdRFlFLSZhPTwwJCGdgWv" target="_blank" class="flex items-center gap-2 text-blue-700 dark:text-blue-400">
+                    <img src="E-Mail-Subscribe-PNG-Photo.png" alt="Email" class="w-5 h-5" /> 
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section id="feedback" class="py-12">
+        </br >
+        </br >
+        <div class="max-w-xl mx-auto bg-white dark:bg-neutral-800 p-6 rounded shadow-md transition-colors duration-700">
+            <h3 class="text-xl font-bold mb-4" data-translate="feedbackTitle">Mandami un feedback!</h3>
+            <form id="feedback-form" action="https://formspree.io/f/manjgjzw" method="POST">
+                <label for="email" class="block mt-4" data-translate="emailOptional">La tua email (facoltativa):</label>
+                <input type="email" id="email" name="email" placeholder="nome@example.com" class="w-full p-2 mt-1 border border-gray-300 rounded dark:text-white dark:bg-neutral-700 transition-colors duration-700">
+                <label for="message" class="block mt-4" data-translate="yourMessage">Il tuo messaggio:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Scrivi qui il tuo feedback..." required class="w-full p-2 mt-1 border border-gray-300 rounded dark:text-white dark:bg-neutral-700 transition-colors duration-700"></textarea>
+                <label for="rating" class="block mt-4" data-translate="rating">Valutazione:</label>
+                <div class="flex gap-2 text-2xl cursor-pointer" id="star-rating">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <input type="hidden" name="stars" id="star-value" value="0" />
+                <div class="g-recaptcha mt-4" data-sitekey="6LeD93orAAAAALdd3FMOxTBX7Gclibevbh2hBwa6"></div>
+                <button type="submit" data-translate="sendFeedback" class="w-full mt-6 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Invia feedback</button>
+            </form>
+            <p id="feedback-response" class="mt-4"></p>
+        </div>
+    </section>
+   
+      <section class="py-12 text-center text-sm">
+        <h3 data-translate="infoTitle" class="font-semibold"><em>Informazioni</em></h3>
+        <a href="COOKIES.html" target="_blank" class="text-blue-600 underline">Informativa sui cookies</a>
+        <p class="mt-2" data-translate="versionInfo"></p>
+        <footer class="mt-4">&copy; 2025 Lorenzo Bergamini. Tutti i diritti riservati.</footer>
+    </section>
+
+<a href="#home" class="fixed bottom-6 right-6 bg-blue-400 text-white px-4 py-2 rounded-full shadow-lg font-bold z-50" style="z-index: 9999;" data-translate="backToTop">Torna all'inizio</a>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+
+    const btnTema = document.getElementById('btn-tema');
+    const iconTema = document.getElementById('icon-tema');
+    const htmlRoot = document.documentElement;
+    const btnLingua = document.getElementById('btn-lingua');
+    const labelLingua = document.getElementById('lingua-label');
+    const skillItems = document.querySelectorAll('.skill-item');
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]|:;"<>,.?/~';
+
+    function caricaParticelle(tema) {
+        const chiaro = tema === 'light';
+
+        if (window.pJSDom && window.pJSDom.length) {
+            window.pJSDom[0].pJS.fn.vendors.destroypJS();
+            window.pJSDom = [];
+        }
+
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 100,
+                    "density": {
+                        "enable": true,
+                        "value_area": 1000
+                    }
+                },
+                "color": { "value": chiaro ? "#333333" : "#ffffff" },
+                "shape": {
+                    "type": "circle",
+                    "stroke": { "width": 0, "color": "#000000" }
+                },
+                "opacity": {
+                    "value": 0.8,
+                    "random": true
+                },
+                "size": {
+                    "value": 2.5,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 120,
+                    "color": chiaro ? "#333333" : "#ffffff",
+                    "opacity": 0.6,
+                    "width": 1.2
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 0.4,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out"
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": false },
+                    "onclick": { "enable": false },
+                    "resize": true
+                }
+            },
+            "retina_detect": true
+        });
+    }
+
+    function setTema(tema) {
+        if (tema === 'dark') {
+            htmlRoot.setAttribute('data-theme', 'dark');
+            document.body.classList.remove('bg-white', 'text-slate-900');
+            document.body.classList.add('bg-slate-900', 'text-slate-200');
+
+            document.querySelector('header').classList.remove('bg-white/70');
+            document.querySelector('header').classList.add('bg-black/30');
+
+            document.querySelectorAll('header nav ul li a').forEach(link => {
+                link.classList.remove('text-slate-900');
+                link.classList.add('text-slate-200');
+            });
+
+            document.getElementById('btn-lingua').classList.remove('bg-black/10', 'text-slate-900');
+            document.getElementById('btn-lingua').classList.add('bg-slate-700/40', 'text-slate-200');
+            document.getElementById('btn-tema').classList.remove('bg-black/10', 'text-slate-900');
+            document.getElementById('btn-tema').classList.add('bg-slate-700/40', 'text-slate-200');
+
+            document.querySelector('#home p').classList.remove('text-slate-900');
+            document.querySelector('#home p').classList.add('text-slate-200');
+
+            document.querySelector('#about p').classList.remove('text-slate-900');
+            document.querySelector('#about p').classList.add('text-slate-200');
+
+            document.querySelectorAll('.skill-item').forEach(item => {
+
+                item.classList.remove('bg-gradient-to-br', 'from-blue-300', 'to-blue-500', 'text-slate-900', 'from-blue-600', 'to-blue-800');
+                item.classList.add('bg-gradient-to-br', 'from-gray-800', 'to-black', 'text-white'); 
+
+                const randomTextDiv = item.querySelector('.skill-random-text');
+                if (randomTextDiv) {
+                    randomTextDiv.style.color = 'rgba(255, 255, 255, 0.08)';
+                }
+            });
+
+            const feedbackBox = document.querySelector('#feedback .max-w-xl');
+            feedbackBox.classList.remove('bg-white');
+            feedbackBox.classList.add('bg-neutral-800');
+            
+            document.querySelectorAll('#feedback input, #feedback textarea').forEach(input => {
+                input.classList.remove('text-black', 'bg-white');
+                input.classList.add('text-white', 'bg-neutral-700');
+            });
+
+            iconTema.innerHTML = `
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+            `;
+        } else {
+            htmlRoot.setAttribute('data-theme', 'light');
+            document.body.classList.remove('bg-slate-900', 'text-slate-200');
+            document.body.classList.add('bg-white', 'text-slate-900');
+
+            document.querySelector('header').classList.remove('bg-black/30');
+            document.querySelector('header').classList.add('bg-white/70');
+
+            document.querySelectorAll('header nav ul li a').forEach(link => {
+                link.classList.remove('text-slate-200');
+                link.classList.add('text-slate-900');
+            });
+
+            document.getElementById('btn-lingua').classList.remove('bg-slate-700/40', 'text-slate-200');
+            document.getElementById('btn-lingua').classList.add('bg-black/10', 'text-slate-900');
+            document.getElementById('btn-tema').classList.remove('bg-slate-700/40', 'text-slate-200');
+            document.getElementById('btn-tema').classList.add('bg-black/10', 'text-slate-900');
+
+            document.querySelector('#home p').classList.remove('text-slate-200');
+            document.querySelector('#home p').classList.add('text-slate-900');
+
+            document.querySelector('#about p').classList.remove('text-slate-200');
+            document.querySelector('#about p').classList.add('text-slate-900');
+
+            document.querySelectorAll('.skill-item').forEach(item => {
+                item.classList.remove('bg-gradient-to-br', 'from-gray-800', 'to-black', 'text-white', 'from-blue-600', 'to-blue-800');
+                item.classList.add('bg-gradient-to-br', 'from-blue-300', 'to-blue-500', 'text-slate-900');
+
+                const randomTextDiv = item.querySelector('.skill-random-text');
+                if (randomTextDiv) {
+                    randomTextDiv.style.color = 'rgba(0, 0, 0, 0.08)';
+                }
+            });
+
+            const feedbackBox = document.querySelector('#feedback .max-w-xl');
+            feedbackBox.classList.remove('bg-neutral-800');
+            feedbackBox.classList.add('bg-white');
+
+            document.querySelectorAll('#feedback input, #feedback textarea').forEach(input => {
+                input.classList.remove('text-white', 'bg-neutral-700');
+                input.classList.add('text-black', 'bg-white');
+            });
+
+            iconTema.innerHTML = `
+                <circle cx="12" cy="12" r="5" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2m11-11h-2M3 12H1m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />
+            `;
+        }
+        localStorage.setItem('tema', tema);
+        caricaParticelle(tema);
+    }
+
+    const testi = {
+        it: {
+            homeTitolo: 'Ciao, sono <span class="text-sky-400 animate-text-glow">Lorenzo Bergamini</span>',
+            homeDescrizione: 'Sviluppatore, appassionato di tecnologia e design.',
+            progettiTitolo: 'Progetti',
+            aboutTitolo: 'Chi Sono',
+            aboutDescrizione: "Mi chiamo Lorenzo Bergamini, ho 18 anni e una delle passioni che da sempre mi accompagna è l’informatica. Questo interesse è nato in modo del tutto spontaneo e naturale durante l'infanzia. Ricordo ancora con entusiasmo il momento in cui, terminata la scuola elementare, i miei genitori mi regalarono il mio primo telefono. Quell’oggetto, apparentemente semplice, suscitò in me un profondo senso di meraviglia e una forte curiosità: mi chiedevo come fosse possibile costruire uno strumento così sofisticato, capace di svolgere così tante funzioni in modo così rapido ed efficiente. Fu proprio da quel momento che iniziai ad avvicinarmi al mondo della tecnologia e dei suoi componenti. Cominciai a documentarmi, leggendo articoli, guardando video, esplorando forum e ponendomi sempre nuove domande. Volevo comprendere cosa si nascondesse dietro lo schermo, come funzionassero i software, quali linguaggi permettessero a un programma di “parlare” con un dispositivo e come venissero progettati i sistemi che oggi fanno parte della nostra quotidianità. Con il tempo, questa semplice curiosità si è trasformata in una vera e propria passione personale. Quando giunse il momento di scegliere il percorso di studi alle scuole superiori, non ebbi dubbi: decisi subito di iscrivermi a un istituto tecnico con indirizzo informatico. Questa scelta ha rappresentato per me il primo passo concreto verso un futuro nel settore dell'informatica, permettendomi di acquisire le basi teoriche e pratiche su cui intendo costruire la mia carriera. Oggi, guardandomi indietro, posso dire con certezza che quella decisione presa da bambino ha segnato l’inizio di un percorso ideale che sento mio.",
+            menuSkills: 'Competenze',
+            skillsTitle: 'Le Mie Competenze',
+            skillHTML: 'HTML',
+            skillCSS: 'CSS',
+            skillJS: 'JavaScript',
+            skillPython: 'Python',
+            skillJava: 'Java',
+            skillNetworking: 'Networking',
+            skillCybersecurity: 'Fondamenti di Cybersecurity',
+            contattiTitolo: 'Contatti',
+            contattiDescrizione: 'Puoi scrivermi tramite email o seguirmi sui social:',
+            emailLabel: 'Gmail',
+            githubLabel: 'GitHub',
+            instagramLabel: 'Instagram',
+            menuHome: 'Home',
+            menuProgetti: 'Progetti',
+            menuAbout: 'Chi Sono',
+            menuContatti: 'Contatti',
+            menuFeedback: 'Feedback',
+            feedbackTitle: 'Mandami un feedback!',
+            emailOptional: 'La tua email (facoltativa):',
+            yourMessage: 'Il tuo messaggio:',
+            rating: 'Valutazione:',
+            sendFeedback: 'Invia feedback',
+            infoTitle: 'Informazioni',
+            versionInfo: 'Questo sito è stato creato da Lorenzo Bergamini come portfolio personale. Versione: 1.0.0<br />Ultimo aggiornamento: Luglio 2025<br />Questo sito non è ufficiale: è stato realizzato esclusivamente per uso personale e a scopo didattico.',
+            backToTop: 'Torna all\'inizio'
+        },
+        en: {
+            homeTitolo: 'Hi, I am <span class="text-sky-400 animate-text-glow">Lorenzo Bergamini</span>',
+            homeDescrizione: 'Developer passionate about technology and design.',
+            progettiTitolo: 'Projects',
+            aboutTitolo: 'About Me',
+            aboutDescrizione: "My name is Lorenzo Bergamini, I'm 18 years old, and one of my lifelong passions is computers. This interest arose completely spontaneously and naturally during childhood. I still remember with enthusiasm the moment, after finishing elementary school, when my parents gave me my first phone. That seemingly simple object aroused in me a profound sense of wonder and a strong curiosity: I wondered how it was possible to build such a sophisticated instrument, capable of performing so many functions so quickly and efficiently. It was from that moment that I began to approach the world of technology and its components. I began to research, reading articles, watching videos, exploring forums, and always asking myself new questions. I wanted to understand what was hidden behind the screen, how software worked, which languages ​​allowed a program to talk to a device, and how the systems that are part of our daily lives today were designed. Over time, this simple curiosity transformed into a true personal passion. When the time came to choose my course of study In high school, I had no doubts: I immediately decided to enroll in a technical institute specializing in computer science. This choice represented the first concrete step toward a future in the IT field, allowing me to acquire the theoretical and practical foundations on which I intend to build my career. Today, looking back, I can say with certainty that that decision I made as a child marked the beginning of an ideal path that I feel is mine.",
+            menuSkills: 'Skills',
+            skillsTitle: 'My Skills',
+            skillHTML: 'HTML',
+            skillCSS: 'CSS',
+            skillJS: 'JavaScript',
+            skillPython: 'Python',
+            skillJava: 'Java',
+            skillSQL: 'SQL',
+            skillReact: 'React',
+            skillGit: 'Git/GitHub',
+            skillNetworking: 'Networking',
+            skillCybersecurity: 'Cybersecurity Basics',
+            contattiTitolo: 'Contacts',
+            contattiDescrizione: 'You can write to me via email or follow me on social media:',
+            emailLabel: 'Gmail',
+            githubLabel: 'GitHub',
+            instagramLabel: 'Instagram',
+            menuHome: 'Home',
+            menuProgetti: 'Projects',
+            menuAbout: 'About',
+            menuContatti: 'Contacts',
+            menuFeedback: 'Feedback',
+            feedbackTitle: 'Send me feedback!',
+            emailOptional: 'Your email (optional):',
+            yourMessage: 'Your message:',
+            rating: 'Rating:',
+            sendFeedback: 'Send feedback',
+            infoTitle: 'Information',
+            versionInfo: 'This site was created by Lorenzo Bergamini as a personal portfolio. Version: 1.0.0<br />Last updated: July 2025<br />This site is unofficial: it was created solely for personal and educational purposes.',
+            backToTop: 'Back to top'
+        }
+    };
+
+    function aggiornaTesti(lang) {
+        labelLingua.textContent = lang.toUpperCase();
+
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (testi[lang][key]) {
+                if (key === 'homeTitolo' || key === 'versionInfo') {
+                    element.innerHTML = testi[lang][key];
+                } else {
+                    element.textContent = testi[lang][key];
+                }
+            }
+        });
+
+        document.getElementById('desc-progetto1').textContent = testi[lang].progetto1Desc;
+        document.getElementById('desc-progetto2').textContent = testi[lang].progetto2Desc;
+        document.getElementById('desc-progetto3').textContent = testi[lang].progetto3Desc;
+
+        document.querySelectorAll('header nav ul li a').forEach(link => {
+            const navKey = link.getAttribute('data-nav-text');
+            if (testi[lang][navKey]) {
+                link.textContent = testi[lang][navKey];
+            }
+        });
+
+        document.querySelectorAll('[data-skill-name]').forEach(element => {
+            const key = element.getAttribute('data-skill-name');
+            if (testi[lang][key]) {
+                element.textContent = testi[lang][key];
+            }
+        });
+
+        /*document.querySelector('a[href*="github.com"] span').textContent = testi[lang].githubLabel;
+        document.querySelector('a[href*="instagram.com"] span').textContent = testi[lang].instagramLabel;
+        document.querySelector('a[href*="mail.google.com"] span').textContent = testi[lang].emailLabel;
+        */
+        const linkedinLink = document.querySelector('a[href*="linkedin.com"] span');
+        if (linkedinLink) {
+             linkedinLink.textContent = testi[lang].linkedinLabel;
+        }
+
+        localStorage.setItem('lingua', lang);
+    }
+
+    function generateRandomString(length) {
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return result;
+    }
+
+    function initializeSkillRandomTexts() {
+        skillItems.forEach(item => {
+            const randomTextDiv = item.querySelector('.skill-random-text');
+            if (randomTextDiv) {
+                const stringLength = 100; 
+                randomTextDiv.innerHTML = generateRandomString(stringLength).split('').map(char => `<span>${char}</span>`).join('');
+            }
+
+            item.addEventListener('mousemove', (e) => {
+                const randomTextDiv = item.querySelector('.skill-random-text');
+                if (!randomTextDiv) return;
+
+                const spans = randomTextDiv.querySelectorAll('span');
+                const updateCount = Math.floor(spans.length * 0.1);
+                
+                for (let i = 0; i < updateCount; i++) {
+                    const randomIndex = Math.floor(Math.random() * spans.length);
+                    spans[randomIndex].textContent = characters.charAt(Math.floor(Math.random() * characters.length));
+                    spans[randomIndex].style.opacity = Math.random() * 0.7 + 0.1;
+                }
+            });
+
+            item.addEventListener('mouseleave', () => {
+                const randomTextDiv = item.querySelector('.skill-random-text');
+                if (randomTextDiv) {
+                    const stringLength = 100; 
+                    randomTextDiv.innerHTML = generateRandomString(stringLength).split('').map(char => `<span>${char}</span>`).join('');
+                }
+            });
+        });
+    }
+
+
+    btnTema.addEventListener('click', () => {
+        const temaAttuale = htmlRoot.getAttribute('data-theme') || 'dark';
+        const nuovoTema = temaAttuale === 'dark' ? 'light' : 'dark';
+        setTema(nuovoTema);
+    });
+
+    btnLingua.addEventListener('click', () => {
+        const linguaAttuale = labelLingua.textContent.toLowerCase();
+        const nuovaLingua = linguaAttuale === 'it' ? 'en' : 'it';
+        aggiornaTesti(nuovaLingua);
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const temaSalvato = localStorage.getItem('tema');
+        const temaPreferito = temaSalvato || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        setTema(temaPreferito);
+
+        const linguaSalvata = localStorage.getItem('lingua');
+        if (linguaSalvata && (linguaSalvata === 'it' || linguaSalvata === 'en')) {
+            aggiornaTesti(linguaSalvata);
+        } else {
+            aggiornaTesti('it');
+        }
+
+        initializeSkillRandomTexts();
+
+        const starRating = document.getElementById('star-rating');
+        const stars = starRating.querySelectorAll('.star');
+        const starValueInput = document.getElementById('star-value');
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const value = parseInt(star.dataset.value);
+                starValueInput.value = value;
+                stars.forEach((s, i) => {
+                    s.style.color = i < value ? '#ffc107' : '#e4e5e9';
+                });
+            });
+            star.addEventListener('mouseover', () => {
+                const value = parseInt(star.dataset.value);
+                stars.forEach((s, i) => {
+                    s.style.color = i < value ? '#ffc107' : '#e4e5e9';
+                });
+            });
+            star.addEventListener('mouseout', () => {
+                const currentValue = parseInt(starValueInput.value);
+                stars.forEach((s, i) => {
+                    s.style.color = i < currentValue ? '#ffc107' : '#e4e5e9';
+                });
+            });
+        });
+
+        const feedbackForm = document.getElementById('feedback-form');
+        const feedbackResponse = document.getElementById('feedback-response');
+        feedbackForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(feedbackForm);
+            const recaptchaResponse = formData.get('g-recaptcha-response');
+            if (!recaptchaResponse) {
+                feedbackResponse.textContent = 'Per favorere, completa il reCAPTCHA.';
+                feedbackResponse.style.color = 'red';
+                return;
+            }
+            try {
+                const response = await fetch(feedbackForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                if (response.ok) {
+                    feedbackResponse.textContent = 'Grazie per il tuo feedback!';
+                    feedbackResponse.style.color = 'green';
+                    feedbackForm.reset();
+                    grecaptcha.reset();
+                    starValueInput.value = '0';
+                    stars.forEach(s => s.style.color = '#e4e5e9');
+                } else {
+                    const data = await response.json();
+                    if (data.errors) {
+                        feedbackResponse.textContent = data.errors.map(error => error.message).join(', ');
+                    } else {
+                        feedbackResponse.textContent = 'Si è verificato un errore durante l\'invio del feedback.';
+                    }
+                    feedbackResponse.style.color = 'red';
+                }
+            } catch (error) {
+                feedbackResponse.textContent = 'Si è verificato un errore di rete. Riprova più tardi.';
+                feedbackResponse.style.color = 'red';
+            }
+        });
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillItemsInView = entry.target.querySelectorAll('.skill-item');
+                    skillItemsInView.forEach((item, index) => {
+                        item.style.animationDelay = `${index * 0.1}s`; 
+                        item.classList.add('animate-in');
+                    });
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, {
+            threshold: 0.2 
+        });
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+    });
+    const feedbackForm = document.getElementById('feedback-form');
+    if (feedbackForm) {
+    feedbackForm.addEventListener('submit', function(e) {
+      var recaptcha = grecaptcha.getResponse();
+      if (!recaptcha) {
+        e.preventDefault();
+        alert('Per favore completa il reCAPTCHA!');
+        return false;
+      }
+    });
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const hamburgerInner = hamburgerButton ? hamburgerButton.querySelector('.hamburger-inner') : null; 
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
+    const mobileCloseInner = mobileMenuCloseButton ? mobileMenuCloseButton.querySelector('.hamburger-inner') : null; 
+    const navLinks = mobileMenuOverlay.querySelectorAll('ul a');
+
+    const btnTema = document.getElementById('btn-tema');
+    const iconTema = document.getElementById('icon-tema');
+    const btnLingua = document.getElementById('btn-lingua');
+    const linguaLabel = document.getElementById('lingua-label');
+
+    const mobileBtnTema = document.getElementById('mobile-btn-tema');
+    const mobileIconTema = document.getElementById('mobile-icon-tema');
+    const mobileBtnLingua = document.getElementById('mobile-btn-lingua');
+    const mobileLinguaLabel = document.getElementById('mobile-lingua-label');
+
+    const htmlElement = document.documentElement;
+
+    function toggleMobileMenu(open) {
+        if (open === undefined) {
+            open = !mobileMenuOverlay.classList.contains('open');
+        }
+
+        if (open) {
+            mobileMenuOverlay.classList.add('open');
+            if (hamburgerInner) hamburgerInner.classList.add('active'); 
+            document.body.style.overflow = 'hidden';
+        } else {
+            mobileMenuOverlay.classList.remove('open');
+            if (hamburgerInner) hamburgerInner.classList.remove('active'); 
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (hamburgerButton) {
+        hamburgerButton.addEventListener('click', () => toggleMobileMenu(true));
+    }
+    if (mobileMenuCloseButton) {
+        mobileMenuCloseButton.addEventListener('click', () => toggleMobileMenu(false));
+    }
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => toggleMobileMenu(false));
+    });
+
+    function updateThemeIcons(isDark) {
+        const sunIconHTML = `<circle cx="12" cy="12" r="5" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2m11-11h-2M3 12H1m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />`;
+        const moonIconHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9 9 0 008.354-5.646z" />`;
+
+        if (iconTema) iconTema.innerHTML = isDark ? moonIconHTML : sunIconHTML;
+        if (mobileIconTema) mobileIconTema.innerHTML = isDark ? moonIconHTML : sunIconHTML;
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        htmlElement.classList.add('dark');
+        updateThemeIcons(true);
+    } else {
+        htmlElement.classList.remove('dark');
+        updateThemeIcons(false);
+    }
+
+    const allThemeButtons = [];
+    if (btnTema) allThemeButtons.push(btnTema);
+    if (mobileBtnTema) allThemeButtons.push(mobileBtnTema);
+
+    allThemeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const isCurrentlyDark = htmlElement.classList.contains('dark');
+            if (isCurrentlyDark) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                updateThemeIcons(false);
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                updateThemeIcons(true);
+            }
+        });
+    });
+
+    const languages = ['IT', 'EN', 'FR'];
+    let currentLangIndex = 0;
+
+    function updateLanguageLabels() {
+        const currentLang = languages[currentLangIndex];
+        if (linguaLabel) linguaLabel.textContent = currentLang;
+        if (mobileLinguaLabel) mobileLinguaLabel.textContent = currentLang;
+        console.log("Lingua cambiata in: ", currentLang);
+    }
+
+    updateLanguageLabels();
+
+    const allLangButtons = [];
+    if (btnLingua) allLangButtons.push(btnLingua);
+    if (mobileBtnLingua) allLangButtons.push(mobileBtnLingua);
+
+    allLangButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            currentLangIndex = (currentLangIndex + 1) % languages.length;
+            updateLanguageLabels();
+        });
+    });
+});
+  
+</script>
+</body>
+</html>
