@@ -247,7 +247,7 @@
         top: 0;
         left: 0;
         transform: translateY(-100%);
-        background: linear-gradient(to right, rgba(14, 165, 233, 0.4), transparent);
+        background: linear-gradient(to right, rgba(0, 174, 255, 0.4), transparent);
         transition: transform 0.3s ease-out, opacity 0.3s ease-out;
     }
 
@@ -255,7 +255,7 @@
         bottom: 0;
         right: 0;
         transform: translateY(100%);
-        background: linear-gradient(to left, rgba(34, 197, 94, 0.4), transparent);
+        background: linear-gradient(to left, rgba(2, 255, 221, 0.4), transparent);
         transition: transform 0.3s ease-out, opacity 0.3s ease-out;
     }
 
@@ -310,12 +310,10 @@
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-
 #hamburger-button .hamburger-inner.active {
-
     transform: rotate(180deg); 
     border-radius: 9999px;
-    background-color: theme('colors.sky.400'); 
+    background-color: theme('colors.sky.400');
 }
 
 #hamburger-button .hamburger-inner.active .dot {
@@ -327,7 +325,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 80%; 
+    width: 80%;
     height: 2px;
     background-color: theme('colors.black'); 
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -340,7 +338,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: inherit; 
+    background-color: inherit;
     transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, bottom 0.3s ease-in-out;
 }
 
@@ -353,19 +351,20 @@
 }
 
 #mobile-menu-close-button .hamburger-inner.active {
-    background-color: theme('colors.sky.400'); 
+    background-color: theme('colors.sky.400');
 }
 #mobile-menu-close-button .hamburger-inner.active .dot {
     opacity: 0;
 }
 
+
 #mobile-menu-overlay {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); 
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px);
 }
 
 #mobile-menu-overlay.open {
-    display: flex;
+    display: flex !important;
     opacity: 1;
 }
 
@@ -387,7 +386,6 @@
 #mobile-menu-overlay.open ul li:nth-child(5) { transition-delay: 0.3s; }
 #mobile-menu-overlay.open ul li:nth-child(6) { transition-delay: 0.35s; }
 
-
 #mobile-menu-overlay .mt-10 {
     opacity: 0;
     transform: translateY(20px);
@@ -399,6 +397,7 @@
     opacity: 1;
     transform: translateY(0);
 }
+
 </style>
 </head>
 <body class="transition-colors duration-700 bg-slate-900 text-slate-200">
@@ -459,18 +458,18 @@
     </ul>
 
     <div class="mt-10 flex space-x-6">
-        <button id="mobile-btn-lingua" aria-label="Cambia lingua" class="bg-slate-700/40 hover:bg-slate-700/70 text-slate-200 rounded-lg px-3 py-1 font-semibold transition-colors flex items-center gap-2 select-none focus:outline-none focus:ring-2 focus:ring-sky-400">
-            <span id="mobile-lingua-label">IT</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-            </svg>
-        </button>
-        <button id="mobile-btn-tema" aria-label="Cambia tema" class="bg-slate-700/40 hover:bg-slate-700/70 text-slate-200 rounded-full w-10 h-10 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400">
-            <svg id="mobile-icon-tema" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2m11-11h-2M3 12H1m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />
-            </svg>
-        </button>
+            <button id="btn-lingua" aria-label="Cambia lingua" class="bg-slate-700/40 hover:bg-slate-700/70 text-slate-200 rounded-lg px-3 py-1 font-semibold transition-colors flex items-center gap-2 select-none focus:outline-none focus:ring-2 focus:ring-sky-400 dark:bg-sky-400 dark:text-slate-900">
+                <span id="lingua-label">IT</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+                </svg>
+            </button>
+            <button id="btn-tema" aria-label="Cambia tema" class="bg-slate-700/40 hover:bg-slate-700/70 text-slate-200 rounded-full w-10 h-10 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400 dark:bg-sky-400 dark:text-slate-900">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </button>
+        </div>
     </div>
 </div>
 </br >
@@ -609,348 +608,376 @@
 <a href="#home" class="fixed bottom-6 right-6 bg-blue-400 text-white px-4 py-2 rounded-full shadow-lg font-bold z-50" style="z-index: 9999;" data-translate="backToTop">Torna all'inizio</a>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburgerButton = document.getElementById('hamburger-button');
+        const hamburgerInner = hamburgerButton ? hamburgerButton.querySelector('.hamburger-inner') : null;
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
+        const navLinks = mobileMenuOverlay.querySelectorAll('ul a');
+        
+        const htmlElement = document.documentElement;
+        const iconTema = document.getElementById('icon-tema');
+        const labelLingua = document.getElementById('lingua-label');
+        const skillItems = document.querySelectorAll('.skill-item');
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]|:;"<>,.?/~';
 
-    const btnTema = document.getElementById('btn-tema');
-    const iconTema = document.getElementById('icon-tema');
-    const htmlRoot = document.documentElement;
-    const btnLingua = document.getElementById('btn-lingua');
-    const labelLingua = document.getElementById('lingua-label');
-    const skillItems = document.querySelectorAll('.skill-item');
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]|:;"<>,.?/~';
+        function caricaParticelle(tema) {
+            const chiaro = tema === 'light';
 
-    function caricaParticelle(tema) {
-        const chiaro = tema === 'light';
+            if (window.pJSDom && window.pJSDom.length) {
+                window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                window.pJSDom = [];
+            }
 
-        if (window.pJSDom && window.pJSDom.length) {
-            window.pJSDom[0].pJS.fn.vendors.destroypJS();
-            window.pJSDom = [];
-        }
-
-        particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 100,
-                    "density": {
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 100,
+                        "density": {
+                            "enable": true,
+                            "value_area": 1000
+                        }
+                    },
+                    "color": { "value": chiaro ? "#333333" : "#ffffff" },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": { "width": 0, "color": "#000000" }
+                    },
+                    "opacity": {
+                        "value": 0.8,
+                        "random": true
+                    },
+                    "size": {
+                        "value": 2.5,
+                        "random": true
+                    },
+                    "line_linked": {
                         "enable": true,
-                        "value_area": 1000
+                        "distance": 120,
+                        "color": chiaro ? "#333333" : "#ffffff",
+                        "opacity": 0.6,
+                        "width": 1.2
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 0.4,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out"
                     }
                 },
-                "color": { "value": chiaro ? "#333333" : "#ffffff" },
-                "shape": {
-                    "type": "circle",
-                    "stroke": { "width": 0, "color": "#000000" }
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": { "enable": false },
+                        "onclick": { "enable": false },
+                        "resize": true
+                    }
                 },
-                "opacity": {
-                    "value": 0.8,
-                    "random": true
-                },
-                "size": {
-                    "value": 2.5,
-                    "random": true
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 120,
-                    "color": chiaro ? "#333333" : "#ffffff",
-                    "opacity": 0.6,
-                    "width": 1.2
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 0.4,
-                    "direction": "none",
-                    "random": true,
-                    "straight": false,
-                    "out_mode": "out"
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": { "enable": false },
-                    "onclick": { "enable": false },
-                    "resize": true
-                }
-            },
-            "retina_detect": true
-        });
-    }
-
-    function setTema(tema) {
-        if (tema === 'dark') {
-            htmlRoot.setAttribute('data-theme', 'dark');
-            document.body.classList.remove('bg-white', 'text-slate-900');
-            document.body.classList.add('bg-slate-900', 'text-slate-200');
-
-            document.querySelector('header').classList.remove('bg-white/70');
-            document.querySelector('header').classList.add('bg-black/30');
-
-            document.querySelectorAll('header nav ul li a').forEach(link => {
-                link.classList.remove('text-slate-900');
-                link.classList.add('text-slate-200');
+                "retina_detect": true
             });
-
-            document.getElementById('btn-lingua').classList.remove('bg-black/10', 'text-slate-900');
-            document.getElementById('btn-lingua').classList.add('bg-slate-700/40', 'text-slate-200');
-            document.getElementById('btn-tema').classList.remove('bg-black/10', 'text-slate-900');
-            document.getElementById('btn-tema').classList.add('bg-slate-700/40', 'text-slate-200');
-
-            document.querySelector('#home p').classList.remove('text-slate-900');
-            document.querySelector('#home p').classList.add('text-slate-200');
-
-            document.querySelector('#about p').classList.remove('text-slate-900');
-            document.querySelector('#about p').classList.add('text-slate-200');
-
-            document.querySelectorAll('.skill-item').forEach(item => {
-
-                item.classList.remove('bg-gradient-to-br', 'from-blue-300', 'to-blue-500', 'text-slate-900', 'from-blue-600', 'to-blue-800');
-                item.classList.add('bg-gradient-to-br', 'from-gray-800', 'to-black', 'text-white'); 
-
-                const randomTextDiv = item.querySelector('.skill-random-text');
-                if (randomTextDiv) {
-                    randomTextDiv.style.color = 'rgba(255, 255, 255, 0.08)';
-                }
-            });
-
-            const feedbackBox = document.querySelector('#feedback .max-w-xl');
-            feedbackBox.classList.remove('bg-white');
-            feedbackBox.classList.add('bg-neutral-800');
-            
-            document.querySelectorAll('#feedback input, #feedback textarea').forEach(input => {
-                input.classList.remove('text-black', 'bg-white');
-                input.classList.add('text-white', 'bg-neutral-700');
-            });
-
-            iconTema.innerHTML = `
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
-            `;
-        } else {
-            htmlRoot.setAttribute('data-theme', 'light');
-            document.body.classList.remove('bg-slate-900', 'text-slate-200');
-            document.body.classList.add('bg-white', 'text-slate-900');
-
-            document.querySelector('header').classList.remove('bg-black/30');
-            document.querySelector('header').classList.add('bg-white/70');
-
-            document.querySelectorAll('header nav ul li a').forEach(link => {
-                link.classList.remove('text-slate-200');
-                link.classList.add('text-slate-900');
-            });
-
-            document.getElementById('btn-lingua').classList.remove('bg-slate-700/40', 'text-slate-200');
-            document.getElementById('btn-lingua').classList.add('bg-black/10', 'text-slate-900');
-            document.getElementById('btn-tema').classList.remove('bg-slate-700/40', 'text-slate-200');
-            document.getElementById('btn-tema').classList.add('bg-black/10', 'text-slate-900');
-
-            document.querySelector('#home p').classList.remove('text-slate-200');
-            document.querySelector('#home p').classList.add('text-slate-900');
-
-            document.querySelector('#about p').classList.remove('text-slate-200');
-            document.querySelector('#about p').classList.add('text-slate-900');
-
-            document.querySelectorAll('.skill-item').forEach(item => {
-                item.classList.remove('bg-gradient-to-br', 'from-gray-800', 'to-black', 'text-white', 'from-blue-600', 'to-blue-800');
-                item.classList.add('bg-gradient-to-br', 'from-blue-300', 'to-blue-500', 'text-slate-900');
-
-                const randomTextDiv = item.querySelector('.skill-random-text');
-                if (randomTextDiv) {
-                    randomTextDiv.style.color = 'rgba(0, 0, 0, 0.08)';
-                }
-            });
-
-            const feedbackBox = document.querySelector('#feedback .max-w-xl');
-            feedbackBox.classList.remove('bg-neutral-800');
-            feedbackBox.classList.add('bg-white');
-
-            document.querySelectorAll('#feedback input, #feedback textarea').forEach(input => {
-                input.classList.remove('text-white', 'bg-neutral-700');
-                input.classList.add('text-black', 'bg-white');
-            });
-
-            iconTema.innerHTML = `
-                <circle cx="12" cy="12" r="5" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2m11-11h-2M3 12H1m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />
-            `;
-        }
-        localStorage.setItem('tema', tema);
-        caricaParticelle(tema);
-    }
-
-    const testi = {
-        it: {
-            homeTitolo: 'Ciao, sono <span class="text-sky-400 animate-text-glow">Lorenzo Bergamini</span>',
-            homeDescrizione: 'Sviluppatore, appassionato di tecnologia e design.',
-            progettiTitolo: 'Progetti',
-            aboutTitolo: 'Chi Sono',
-            aboutDescrizione: "Mi chiamo Lorenzo Bergamini, ho 18 anni e una delle passioni che da sempre mi accompagna è l’informatica. Questo interesse è nato in modo del tutto spontaneo e naturale durante l'infanzia. Ricordo ancora con entusiasmo il momento in cui, terminata la scuola elementare, i miei genitori mi regalarono il mio primo telefono. Quell’oggetto, apparentemente semplice, suscitò in me un profondo senso di meraviglia e una forte curiosità: mi chiedevo come fosse possibile costruire uno strumento così sofisticato, capace di svolgere così tante funzioni in modo così rapido ed efficiente. Fu proprio da quel momento che iniziai ad avvicinarmi al mondo della tecnologia e dei suoi componenti. Cominciai a documentarmi, leggendo articoli, guardando video, esplorando forum e ponendomi sempre nuove domande. Volevo comprendere cosa si nascondesse dietro lo schermo, come funzionassero i software, quali linguaggi permettessero a un programma di “parlare” con un dispositivo e come venissero progettati i sistemi che oggi fanno parte della nostra quotidianità. Con il tempo, questa semplice curiosità si è trasformata in una vera e propria passione personale. Quando giunse il momento di scegliere il percorso di studi alle scuole superiori, non ebbi dubbi: decisi subito di iscrivermi a un istituto tecnico con indirizzo informatico. Questa scelta ha rappresentato per me il primo passo concreto verso un futuro nel settore dell'informatica, permettendomi di acquisire le basi teoriche e pratiche su cui intendo costruire la mia carriera. Oggi, guardandomi indietro, posso dire con certezza che quella decisione presa da bambino ha segnato l’inizio di un percorso ideale che sento mio.",
-            menuSkills: 'Competenze',
-            skillsTitle: 'Le Mie Competenze',
-            skillHTML: 'HTML',
-            skillCSS: 'CSS',
-            skillJS: 'JavaScript',
-            skillPython: 'Python',
-            skillJava: 'Java',
-            skillNetworking: 'Networking',
-            skillCybersecurity: 'Fondamenti di Cybersecurity',
-            contattiTitolo: 'Contatti',
-            contattiDescrizione: 'Puoi scrivermi tramite email o seguirmi sui social:',
-            emailLabel: 'Gmail',
-            githubLabel: 'GitHub',
-            instagramLabel: 'Instagram',
-            menuHome: 'Home',
-            menuProgetti: 'Progetti',
-            menuAbout: 'Chi Sono',
-            menuContatti: 'Contatti',
-            menuFeedback: 'Feedback',
-            feedbackTitle: 'Mandami un feedback!',
-            emailOptional: 'La tua email (facoltativa):',
-            yourMessage: 'Il tuo messaggio:',
-            rating: 'Valutazione:',
-            sendFeedback: 'Invia feedback',
-            infoTitle: 'Informazioni',
-            versionInfo: 'Questo sito è stato creato da Lorenzo Bergamini come portfolio personale. Versione: 1.0.0<br />Ultimo aggiornamento: Luglio 2025<br />Questo sito non è ufficiale: è stato realizzato esclusivamente per uso personale e a scopo didattico.',
-            backToTop: 'Torna all\'inizio'
-        },
-        en: {
-            homeTitolo: 'Hi, I am <span class="text-sky-400 animate-text-glow">Lorenzo Bergamini</span>',
-            homeDescrizione: 'Developer passionate about technology and design.',
-            progettiTitolo: 'Projects',
-            aboutTitolo: 'About Me',
-            aboutDescrizione: "My name is Lorenzo Bergamini, I'm 18 years old, and one of my lifelong passions is computers. This interest arose completely spontaneously and naturally during childhood. I still remember with enthusiasm the moment, after finishing elementary school, when my parents gave me my first phone. That seemingly simple object aroused in me a profound sense of wonder and a strong curiosity: I wondered how it was possible to build such a sophisticated instrument, capable of performing so many functions so quickly and efficiently. It was from that moment that I began to approach the world of technology and its components. I began to research, reading articles, watching videos, exploring forums, and always asking myself new questions. I wanted to understand what was hidden behind the screen, how software worked, which languages ​​allowed a program to talk to a device, and how the systems that are part of our daily lives today were designed. Over time, this simple curiosity transformed into a true personal passion. When the time came to choose my course of study In high school, I had no doubts: I immediately decided to enroll in a technical institute specializing in computer science. This choice represented the first concrete step toward a future in the IT field, allowing me to acquire the theoretical and practical foundations on which I intend to build my career. Today, looking back, I can say with certainty that that decision I made as a child marked the beginning of an ideal path that I feel is mine.",
-            menuSkills: 'Skills',
-            skillsTitle: 'My Skills',
-            skillHTML: 'HTML',
-            skillCSS: 'CSS',
-            skillJS: 'JavaScript',
-            skillPython: 'Python',
-            skillJava: 'Java',
-            skillSQL: 'SQL',
-            skillReact: 'React',
-            skillGit: 'Git/GitHub',
-            skillNetworking: 'Networking',
-            skillCybersecurity: 'Cybersecurity Basics',
-            contattiTitolo: 'Contacts',
-            contattiDescrizione: 'You can write to me via email or follow me on social media:',
-            emailLabel: 'Gmail',
-            githubLabel: 'GitHub',
-            instagramLabel: 'Instagram',
-            menuHome: 'Home',
-            menuProgetti: 'Projects',
-            menuAbout: 'About',
-            menuContatti: 'Contacts',
-            menuFeedback: 'Feedback',
-            feedbackTitle: 'Send me feedback!',
-            emailOptional: 'Your email (optional):',
-            yourMessage: 'Your message:',
-            rating: 'Rating:',
-            sendFeedback: 'Send feedback',
-            infoTitle: 'Information',
-            versionInfo: 'This site was created by Lorenzo Bergamini as a personal portfolio. Version: 1.0.0<br />Last updated: July 2025<br />This site is unofficial: it was created solely for personal and educational purposes.',
-            backToTop: 'Back to top'
-        }
-    };
-
-    function aggiornaTesti(lang) {
-        labelLingua.textContent = lang.toUpperCase();
-
-        document.querySelectorAll('[data-translate]').forEach(element => {
-            const key = element.getAttribute('data-translate');
-            if (testi[lang][key]) {
-                if (key === 'homeTitolo' || key === 'versionInfo') {
-                    element.innerHTML = testi[lang][key];
-                } else {
-                    element.textContent = testi[lang][key];
-                }
-            }
-        });
-
-        document.getElementById('desc-progetto1').textContent = testi[lang].progetto1Desc;
-        document.getElementById('desc-progetto2').textContent = testi[lang].progetto2Desc;
-        document.getElementById('desc-progetto3').textContent = testi[lang].progetto3Desc;
-
-        document.querySelectorAll('header nav ul li a').forEach(link => {
-            const navKey = link.getAttribute('data-nav-text');
-            if (testi[lang][navKey]) {
-                link.textContent = testi[lang][navKey];
-            }
-        });
-
-        document.querySelectorAll('[data-skill-name]').forEach(element => {
-            const key = element.getAttribute('data-skill-name');
-            if (testi[lang][key]) {
-                element.textContent = testi[lang][key];
-            }
-        });
-
-        /*document.querySelector('a[href*="github.com"] span').textContent = testi[lang].githubLabel;
-        document.querySelector('a[href*="instagram.com"] span').textContent = testi[lang].instagramLabel;
-        document.querySelector('a[href*="mail.google.com"] span').textContent = testi[lang].emailLabel;
-        */
-        const linkedinLink = document.querySelector('a[href*="linkedin.com"] span');
-        if (linkedinLink) {
-             linkedinLink.textContent = testi[lang].linkedinLabel;
         }
 
-        localStorage.setItem('lingua', lang);
-    }
+        function setTema(tema) {
+            if (tema === 'dark') {
+                htmlElement.setAttribute('data-theme', 'dark');
+                document.body.classList.remove('bg-white', 'text-slate-900');
+                document.body.classList.add('bg-slate-900', 'text-slate-200');
 
-    function generateRandomString(length) {
-        let result = '';
-        for (let i = 0; i < length; i++) {
-            result += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-        return result;
-    }
+                document.querySelector('header').classList.remove('bg-white/70');
+                document.querySelector('header').classList.add('bg-black/30');
 
-    function initializeSkillRandomTexts() {
-        skillItems.forEach(item => {
-            const randomTextDiv = item.querySelector('.skill-random-text');
-            if (randomTextDiv) {
-                const stringLength = 100; 
-                randomTextDiv.innerHTML = generateRandomString(stringLength).split('').map(char => `<span>${char}</span>`).join('');
-            }
+                document.querySelectorAll('header nav ul li a').forEach(link => {
+                    link.classList.remove('text-slate-900');
+                    link.classList.add('text-slate-200');
+                });
 
-            item.addEventListener('mousemove', (e) => {
-                const randomTextDiv = item.querySelector('.skill-random-text');
-                if (!randomTextDiv) return;
-
-                const spans = randomTextDiv.querySelectorAll('span');
-                const updateCount = Math.floor(spans.length * 0.1);
+                document.querySelectorAll('#btn-lingua, #btn-tema').forEach(btn => {
+                    btn.classList.remove('bg-black/10', 'text-slate-900');
+                    btn.classList.add('bg-slate-700/40', 'text-slate-200');
+                });
                 
-                for (let i = 0; i < updateCount; i++) {
-                    const randomIndex = Math.floor(Math.random() * spans.length);
-                    spans[randomIndex].textContent = characters.charAt(Math.floor(Math.random() * characters.length));
-                    spans[randomIndex].style.opacity = Math.random() * 0.7 + 0.1;
+                document.querySelector('#home p').classList.remove('text-slate-900');
+                document.querySelector('#home p').classList.add('text-slate-200');
+
+                document.querySelector('#about p').classList.remove('text-slate-900');
+                document.querySelector('#about p').classList.add('text-slate-200');
+
+                document.querySelectorAll('.skill-item').forEach(item => {
+                    item.classList.remove('bg-gradient-to-br', 'from-blue-300', 'to-blue-500', 'text-slate-900');
+                    item.classList.add('bg-gradient-to-br', 'from-gray-800', 'to-black', 'text-white'); 
+
+                    const randomTextDiv = item.querySelector('.skill-random-text');
+                    if (randomTextDiv) {
+                        randomTextDiv.style.color = 'rgba(255, 255, 255, 0.08)';
+                    }
+                });
+
+                const feedbackBox = document.querySelector('#feedback .max-w-xl');
+                feedbackBox.classList.remove('bg-white');
+                feedbackBox.classList.add('bg-neutral-800');
+                
+                document.querySelectorAll('#feedback input, #feedback textarea').forEach(input => {
+                    input.classList.remove('text-black', 'bg-white');
+                    input.classList.add('text-white', 'bg-neutral-700');
+                });
+
+                iconTema.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+                `;
+            } else {
+                htmlElement.setAttribute('data-theme', 'light');
+                document.body.classList.remove('bg-slate-900', 'text-slate-200');
+                document.body.classList.add('bg-white', 'text-slate-900');
+
+                document.querySelector('header').classList.remove('bg-black/30');
+                document.querySelector('header').classList.add('bg-white/70');
+
+                document.querySelectorAll('header nav ul li a').forEach(link => {
+                    link.classList.remove('text-slate-200');
+                    link.classList.add('text-slate-900');
+                });
+
+                document.querySelectorAll('#btn-lingua, #btn-tema').forEach(btn => {
+                    btn.classList.remove('bg-slate-700/40', 'text-slate-200');
+                    btn.classList.add('bg-black/10', 'text-slate-900');
+                });
+
+                document.querySelector('#home p').classList.remove('text-slate-200');
+                document.querySelector('#home p').classList.add('text-slate-900');
+
+                document.querySelector('#about p').classList.remove('text-slate-200');
+                document.querySelector('#about p').classList.add('text-slate-900');
+
+                document.querySelectorAll('.skill-item').forEach(item => {
+                    item.classList.remove('bg-gradient-to-br', 'from-gray-800', 'to-black', 'text-white');
+                    item.classList.add('bg-gradient-to-br', 'from-blue-300', 'to-blue-500', 'text-slate-900');
+
+                    const randomTextDiv = item.querySelector('.skill-random-text');
+                    if (randomTextDiv) {
+                        randomTextDiv.style.color = 'rgba(0, 0, 0, 0.08)';
+                    }
+                });
+
+                const feedbackBox = document.querySelector('#feedback .max-w-xl');
+                feedbackBox.classList.remove('bg-neutral-800');
+                feedbackBox.classList.add('bg-white');
+
+                document.querySelectorAll('#feedback input, #feedback textarea').forEach(input => {
+                    input.classList.remove('text-white', 'bg-neutral-700');
+                    input.classList.add('text-black', 'bg-white');
+                });
+
+                iconTema.innerHTML = `
+                    <circle cx="12" cy="12" r="5" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2m11-11h-2M3 12H1m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />
+                `;
+            }
+            localStorage.setItem('tema', tema);
+            caricaParticelle(tema);
+        }
+
+        const testi = {
+            it: {
+                homeTitolo: 'Ciao, sono <span class="text-sky-400 animate-text-glow">Lorenzo Bergamini</span>',
+                homeDescrizione: 'Sviluppatore, appassionato di tecnologia e design.',
+                progettiTitolo: 'Progetti',
+                aboutTitolo: 'Chi Sono',
+                aboutDescrizione: "Mi chiamo Lorenzo Bergamini, ho 18 anni e una delle passioni che da sempre mi accompagna è l’informatica. Questo interesse è nato in modo del tutto spontaneo e naturale durante l'infanzia. Ricordo ancora con entusiasmo il momento in cui, terminata la scuola elementare, i miei genitori mi regalarono il mio primo telefono. Quell’oggetto, apparentemente semplice, suscitò in me un profondo senso di meraviglia e una forte curiosità: mi chiedevo come fosse possibile costruire uno strumento così sofisticato, capace di svolgere così tante funzioni in modo così rapido ed efficiente. Fu proprio da quel momento che iniziai ad avvicinarmi al mondo della tecnologia e dei suoi componenti. Cominciai a documentarmi, leggendo articoli, guardando video, esplorando forum e ponendomi sempre nuove domande. Volevo comprendere cosa si nascondesse dietro lo schermo, come funzionassero i software, quali linguaggi permettessero a un programma di “parlare” con un dispositivo e come venissero progettati i sistemi che oggi fanno parte della nostra quotidianità. Con il tempo, questa semplice curiosità si è trasformata in una vera e propria passione personale. Quando giunse il momento di scegliere il percorso di studi alle scuole superiori, non ebbi dubbi: decisi subito di iscrivermi a un istituto tecnico con indirizzo informatico. Questa scelta ha rappresentato per me il primo passo concreto verso un futuro nel settore dell'informatica, permettendomi di acquisire le basi teoriche e pratiche su cui intendo costruire la mia carriera. Oggi, guardandomi indietro, posso dire con certezza che quella decisione presa da bambino ha segnato l’inizio di un percorso ideale che sento mio.",
+                menuSkills: 'Competenze',
+                skillsTitle: 'Le Mie Competenze',
+                skillHTML: 'HTML',
+                skillCSS: 'CSS',
+                skillJS: 'JavaScript',
+                skillPython: 'Python',
+                skillJava: 'Java',
+                skillNetworking: 'Networking',
+                skillCybersecurity: 'Fondamenti di Cybersecurity',
+                contattiTitolo: 'Contatti',
+                contattiDescrizione: 'Puoi scrivermi tramite email o seguirmi sui social:',
+                emailLabel: 'Gmail',
+                githubLabel: 'GitHub',
+                instagramLabel: 'Instagram',
+                menuHome: 'Home',
+                menuProgetti: 'Progetti',
+                menuAbout: 'Chi Sono',
+                menuContatti: 'Contatti',
+                menuFeedback: 'Feedback',
+                feedbackTitle: 'Mandami un feedback!',
+                emailOptional: 'La tua email (facoltativa):',
+                yourMessage: 'Il tuo messaggio:',
+                rating: 'Valutazione:',
+                sendFeedback: 'Invia feedback',
+                infoTitle: 'Informazioni',
+                versionInfo: 'Questo sito è stato creato da Lorenzo Bergamini come portfolio personale. Versione: 1.0.0<br />Ultimo aggiornamento: Luglio 2025<br />Questo sito non è ufficiale: è stato realizzato esclusivamente per uso personale e a scopo didattico.',
+                backToTop: 'Torna all\'inizio',
+                progetto1Desc: 'Gioco PacMan creato in Java',
+                progetto2Desc: 'Esempio di sito web Responsive',
+                progetto3Desc: 'Link al mio profilo Github'
+            },
+            en: {
+                homeTitolo: 'Hi, I am <span class="text-sky-400 animate-text-glow">Lorenzo Bergamini</span>',
+                homeDescrizione: 'Developer passionate about technology and design.',
+                progettiTitolo: 'Projects',
+                aboutTitolo: 'About Me',
+                aboutDescrizione: "My name is Lorenzo Bergamini, I'm 18 years old, and one of my lifelong passions is computers. This interest arose completely spontaneously and naturally during childhood. I still remember with enthusiasm the moment, after finishing elementary school, when my parents gave me my first phone. That seemingly simple object aroused in me a profound sense of wonder and a strong curiosity: I wondered how it was possible to build such a sophisticated instrument, capable of performing so many functions so quickly and efficiently. It was from that moment that I began to approach the world of technology and its components. I began to research, reading articles, watching videos, exploring forums, and always asking myself new questions. I wanted to understand what was hidden behind the screen, how software worked, which languages ​​allowed a program to talk to a device, and how the systems that are part of our daily lives today were designed. Over time, this simple curiosity transformed into a true personal passion. When the time came to choose my course of study In high school, I had no doubts: I immediately decided to enroll in a technical institute specializing in computer science. This choice represented the first concrete step toward a future in the IT field, allowing me to acquire the theoretical and practical foundations on which I intend to build my career. Today, looking back, I can say with certainty that that decision I made as a child marked the beginning of an ideal path that I feel is mine.",
+                menuSkills: 'Skills',
+                skillsTitle: 'My Skills',
+                skillHTML: 'HTML',
+                skillCSS: 'CSS',
+                skillJS: 'JavaScript',
+                skillPython: 'Python',
+                skillJava: 'Java',
+                skillSQL: 'SQL',
+                skillReact: 'React',
+                skillGit: 'Git/GitHub',
+                skillNetworking: 'Networking',
+                skillCybersecurity: 'Cybersecurity Basics',
+                contattiTitolo: 'Contacts',
+                contattiDescrizione: 'You can write to me via email or follow me on social media:',
+                emailLabel: 'Gmail',
+                githubLabel: 'GitHub',
+                instagramLabel: 'Instagram',
+                menuHome: 'Home',
+                menuProgetti: 'Projects',
+                menuAbout: 'About',
+                menuContatti: 'Contacts',
+                menuFeedback: 'Feedback',
+                feedbackTitle: 'Send me feedback!',
+                emailOptional: 'Your email (optional):',
+                yourMessage: 'Your message:',
+                rating: 'Rating:',
+                sendFeedback: 'Send feedback',
+                infoTitle: 'Information',
+                versionInfo: 'This site was created by Lorenzo Bergamini as a personal portfolio. Version: 1.0.0<br />Last updated: July 2025<br />This site is unofficial: it was created solely for personal and educational purposes.',
+                backToTop: 'Back to top',
+                progetto1Desc: 'PacMan game created in Java',
+                progetto2Desc: 'Example of a Responsive Website',
+                progetto3Desc: 'Link to my Github profile'
+            }
+        };
+
+        function aggiornaTesti(lang) {
+            const currentLangData = testi[lang];
+            if (!currentLangData) {
+                console.error("Lingua non trovata:", lang);
+                return;
+            }
+
+            document.querySelectorAll('#lingua-label').forEach(label => {
+                label.textContent = lang.toUpperCase();
+            });
+
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (currentLangData[key]) {
+                    if (key === 'homeTitolo' || key === 'versionInfo') {
+                        element.innerHTML = currentLangData[key];
+                    } else {
+                        element.textContent = currentLangData[key];
+                    }
                 }
             });
 
-            item.addEventListener('mouseleave', () => {
+            document.getElementById('desc-progetto1').textContent = currentLangData.progetto1Desc || '';
+            document.getElementById('desc-progetto2').textContent = currentLangData.progetto2Desc || '';
+            document.getElementById('desc-progetto3').textContent = currentLangData.progetto3Desc || '';
+
+            document.querySelectorAll('[data-nav-text]').forEach(link => {
+                const navKey = link.getAttribute('data-nav-text');
+                if (currentLangData[navKey]) {
+                    link.textContent = currentLangData[navKey];
+                }
+            });
+
+            document.querySelectorAll('[data-skill-name]').forEach(element => {
+                const key = element.getAttribute('data-skill-name');
+                if (currentLangData[key]) {
+                    element.textContent = currentLangData[key];
+                }
+            });
+           
+            localStorage.setItem('lingua', lang);
+        }
+
+        function generateRandomString(length) {
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+        function initializeSkillRandomTexts() {
+            skillItems.forEach(item => {
                 const randomTextDiv = item.querySelector('.skill-random-text');
                 if (randomTextDiv) {
                     const stringLength = 100; 
                     randomTextDiv.innerHTML = generateRandomString(stringLength).split('').map(char => `<span>${char}</span>`).join('');
                 }
+
+                item.addEventListener('mousemove', (e) => {
+                    const randomTextDiv = item.querySelector('.skill-random-text');
+                    if (!randomTextDiv) return;
+
+                    const spans = randomTextDiv.querySelectorAll('span');
+                    const updateCount = Math.floor(spans.length * 0.1);
+                    
+                    for (let i = 0; i < updateCount; i++) {
+                        const randomIndex = Math.floor(Math.random() * spans.length);
+                        spans[randomIndex].textContent = characters.charAt(Math.floor(Math.random() * characters.length));
+                        spans[randomIndex].style.opacity = Math.random() * 0.7 + 0.1;
+                    }
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    const randomTextDiv = item.querySelector('.skill-random-text');
+                    if (randomTextDiv) {
+                        const stringLength = 100; 
+                        randomTextDiv.innerHTML = generateRandomString(stringLength).split('').map(char => `<span>${char}</span>`).join('');
+                    }
+                });
             });
+        }
+
+
+        if (hamburgerButton) {
+            hamburgerButton.addEventListener('click', () => toggleMobileMenu(true));
+        }
+        if (mobileMenuCloseButton) {
+            mobileMenuCloseButton.addEventListener('click', () => toggleMobileMenu(false));
+        }
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => toggleMobileMenu(false));
         });
-    }
 
+        document.body.addEventListener('click', (event) => {
+            const clickedTemaButton = event.target.closest('#btn-tema'); 
+            const clickedLinguaButton = event.target.closest('#btn-lingua');
 
-    btnTema.addEventListener('click', () => {
-        const temaAttuale = htmlRoot.getAttribute('data-theme') || 'dark';
-        const nuovoTema = temaAttuale === 'dark' ? 'light' : 'dark';
-        setTema(nuovoTema);
-    });
+            if (clickedTemaButton) {
+                const temaAttuale = htmlElement.getAttribute('data-theme') || 'dark';
+                const nuovoTema = temaAttuale === 'dark' ? 'light' : 'dark';
+                setTema(nuovoTema);
+            } else if (clickedLinguaButton) {
+                const linguaAttualeElement = clickedLinguaButton.querySelector('#lingua-label');
+                if (linguaAttualeElement) {
+                    const linguaAttuale = linguaAttualeElement.textContent.toLowerCase();
+                    const nuovaLingua = linguaAttuale === 'it' ? 'en' : 'it';
+                    aggiornaTesti(nuovaLingua);
+                }
+            }
+        });
 
-    btnLingua.addEventListener('click', () => {
-        const linguaAttuale = labelLingua.textContent.toLowerCase();
-        const nuovaLingua = linguaAttuale === 'it' ? 'en' : 'it';
-        aggiornaTesti(nuovaLingua);
-    });
+        const savedTheme = localStorage.getItem('tema');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const temaSalvato = localStorage.getItem('tema');
-        const temaPreferito = temaSalvato || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        setTema(temaPreferito);
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            setTema('dark');
+        } else {
+            setTema('light');
+        }
 
         const linguaSalvata = localStorage.getItem('lingua');
         if (linguaSalvata && (linguaSalvata === 'it' || linguaSalvata === 'en')) {
@@ -988,44 +1015,49 @@
 
         const feedbackForm = document.getElementById('feedback-form');
         const feedbackResponse = document.getElementById('feedback-response');
-        feedbackForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(feedbackForm);
-            const recaptchaResponse = formData.get('g-recaptcha-response');
-            if (!recaptchaResponse) {
-                feedbackResponse.textContent = 'Per favorere, completa il reCAPTCHA.';
-                feedbackResponse.style.color = 'red';
-                return;
-            }
-            try {
-                const response = await fetch(feedbackForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                if (response.ok) {
-                    feedbackResponse.textContent = 'Grazie per il tuo feedback!';
-                    feedbackResponse.style.color = 'green';
-                    feedbackForm.reset();
-                    grecaptcha.reset();
-                    starValueInput.value = '0';
-                    stars.forEach(s => s.style.color = '#e4e5e9');
-                } else {
-                    const data = await response.json();
-                    if (data.errors) {
-                        feedbackResponse.textContent = data.errors.map(error => error.message).join(', ');
+        if (feedbackForm) {
+            feedbackForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(feedbackForm);
+                const recaptchaResponse = grecaptcha.getResponse();
+                formData.append('g-recaptcha-response', recaptchaResponse);
+
+                if (!recaptchaResponse) {
+                    feedbackResponse.textContent = 'Per favori, completa il reCAPTCHA.';
+                    feedbackResponse.style.color = 'red';
+                    return;
+                }
+                try {
+                    const response = await fetch(feedbackForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    if (response.ok) {
+                        feedbackResponse.textContent = 'Grazie per il tuo feedback!';
+                        feedbackResponse.style.color = 'green';
+                        feedbackForm.reset();
+                        grecaptcha.reset();
+                        starValueInput.value = '0';
+                        stars.forEach(s => s.style.color = '#e4e5e9');
                     } else {
-                        feedbackResponse.textContent = 'Si è verificato un errore durante l\'invio del feedback.';
+                        const data = await response.json();
+                        if (data.errors) {
+                            feedbackResponse.textContent = data.errors.map(error => error.message).join(', ');
+                        } else {
+                            feedbackResponse.textContent = 'Si è verificato un errore durante l\'invio del feedback.';
+                        }
+                        feedbackResponse.style.color = 'red';
                     }
+                } catch (error) {
+                    feedbackResponse.textContent = 'Si è verificato un errore di rete. Riprova più tardi.';
                     feedbackResponse.style.color = 'red';
                 }
-            } catch (error) {
-                feedbackResponse.textContent = 'Si è verificato un errore di rete. Riprova più tardi.';
-                feedbackResponse.style.color = 'red';
-            }
-        });
+            });
+        }
+
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -1047,125 +1079,63 @@
             observer.observe(skillsSection);
         }
     });
-    const feedbackForm = document.getElementById('feedback-form');
-    if (feedbackForm) {
-    feedbackForm.addEventListener('submit', function(e) {
-      var recaptcha = grecaptcha.getResponse();
-      if (!recaptcha) {
-        e.preventDefault();
-        alert('Per favore completa il reCAPTCHA!');
-        return false;
-      }
-    });
-  }
-  document.addEventListener('DOMContentLoaded', () => {
-    const hamburgerButton = document.getElementById('hamburger-button');
-    const hamburgerInner = hamburgerButton ? hamburgerButton.querySelector('.hamburger-inner') : null; 
-    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-    const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
-    const mobileCloseInner = mobileMenuCloseButton ? mobileMenuCloseButton.querySelector('.hamburger-inner') : null; 
-    const navLinks = mobileMenuOverlay.querySelectorAll('ul a');
 
-    const btnTema = document.getElementById('btn-tema');
-    const iconTema = document.getElementById('icon-tema');
-    const btnLingua = document.getElementById('btn-lingua');
-    const linguaLabel = document.getElementById('lingua-label');
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburgerButton = document.getElementById('hamburger-button');
+        const hamburgerInner = hamburgerButton ? hamburgerButton.querySelector('.hamburger-inner') : null;
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
+        const navLinks = mobileMenuOverlay.querySelectorAll('ul a');
 
-    const mobileBtnTema = document.getElementById('mobile-btn-tema');
-    const mobileIconTema = document.getElementById('mobile-icon-tema');
-    const mobileBtnLingua = document.getElementById('mobile-btn-lingua');
-    const mobileLinguaLabel = document.getElementById('mobile-lingua-label');
-
-    const htmlElement = document.documentElement;
-
-    function toggleMobileMenu(open) {
-        if (open === undefined) {
-            open = !mobileMenuOverlay.classList.contains('open');
-        }
-
-        if (open) {
-            mobileMenuOverlay.classList.add('open');
-            if (hamburgerInner) hamburgerInner.classList.add('active'); 
-            document.body.style.overflow = 'hidden';
-        } else {
-            mobileMenuOverlay.classList.remove('open');
-            if (hamburgerInner) hamburgerInner.classList.remove('active'); 
-            document.body.style.overflow = '';
-        }
-    }
-
-    if (hamburgerButton) {
-        hamburgerButton.addEventListener('click', () => toggleMobileMenu(true));
-    }
-    if (mobileMenuCloseButton) {
-        mobileMenuCloseButton.addEventListener('click', () => toggleMobileMenu(false));
-    }
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => toggleMobileMenu(false));
-    });
-
-    function updateThemeIcons(isDark) {
-        const sunIconHTML = `<circle cx="12" cy="12" r="5" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2m11-11h-2M3 12H1m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />`;
-        const moonIconHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9 9 0 008.354-5.646z" />`;
-
-        if (iconTema) iconTema.innerHTML = isDark ? moonIconHTML : sunIconHTML;
-        if (mobileIconTema) mobileIconTema.innerHTML = isDark ? moonIconHTML : sunIconHTML;
-    }
-
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        htmlElement.classList.add('dark');
-        updateThemeIcons(true);
-    } else {
-        htmlElement.classList.remove('dark');
-        updateThemeIcons(false);
-    }
-
-    const allThemeButtons = [];
-    if (btnTema) allThemeButtons.push(btnTema);
-    if (mobileBtnTema) allThemeButtons.push(mobileBtnTema);
-
-    allThemeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const isCurrentlyDark = htmlElement.classList.contains('dark');
-            if (isCurrentlyDark) {
-                htmlElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-                updateThemeIcons(false);
-            } else {
-                htmlElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-                updateThemeIcons(true);
+        function toggleMobileMenu(open) {
+            if (open === undefined) {
+                open = !mobileMenuOverlay.classList.contains('open');
             }
+
+            if (open) {
+                mobileMenuOverlay.classList.add('open');
+                if (hamburgerInner) hamburgerInner.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenuOverlay.classList.remove('open');
+                if (hamburgerInner) hamburgerInner.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (hamburgerButton) {
+            hamburgerButton.addEventListener('click', () => toggleMobileMenu(true));
+        }
+
+        if (mobileMenuCloseButton) {
+            mobileMenuCloseButton.addEventListener('click', () => toggleMobileMenu(false));
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => toggleMobileMenu(false));
         });
     });
+    document.getElementById('btn-tema').addEventListener('click', function() {
+    const body = document.body;
+    const iconTema = document.getElementById('icon-tema');
 
-    const languages = ['IT', 'EN', 'FR'];
-    let currentLangIndex = 0;
+    const sunIconSVG = `
+        <circle cx="12" cy="12" r="5" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2m11-11h-2M3 12H1m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />
+    `;
 
-    function updateLanguageLabels() {
-        const currentLang = languages[currentLangIndex];
-        if (linguaLabel) linguaLabel.textContent = currentLang;
-        if (mobileLinguaLabel) mobileLinguaLabel.textContent = currentLang;
-        console.log("Lingua cambiata in: ", currentLang);
+    const moonIconSVG = `
+        <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+    `;
+
+    body.classList.toggle('dark-theme');
+
+    if (body.classList.contains('dark-theme')) {
+        iconTema.innerHTML = moonIconSVG;
+    } else {
+        iconTema.innerHTML = sunIconSVG;
     }
-
-    updateLanguageLabels();
-
-    const allLangButtons = [];
-    if (btnLingua) allLangButtons.push(btnLingua);
-    if (mobileBtnLingua) allLangButtons.push(mobileBtnLingua);
-
-    allLangButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            currentLangIndex = (currentLangIndex + 1) % languages.length;
-            updateLanguageLabels();
-        });
-    });
 });
-  
 </script>
 </body>
 </html>
