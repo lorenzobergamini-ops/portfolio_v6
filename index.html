@@ -109,6 +109,9 @@
     #icon-tema {
         transition: transform 0.6s ease;
     }
+    #icon-tema1 {
+        transition: transform 0.6s ease;
+    }
 
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
@@ -366,6 +369,7 @@
 #mobile-menu-overlay.open {
     display: flex !important;
     opacity: 1;
+
 }
 
 #mobile-menu-overlay ul li {
@@ -377,14 +381,8 @@
 #mobile-menu-overlay.open ul li {
     opacity: 1;
     transform: translateY(0);
-}
 
-#mobile-menu-overlay.open ul li:nth-child(1) { transition-delay: 0.1s; }
-#mobile-menu-overlay.open ul li:nth-child(2) { transition-delay: 0.15s; }
-#mobile-menu-overlay.open ul li:nth-child(3) { transition-delay: 0.2s; }
-#mobile-menu-overlay.open ul li:nth-child(4) { transition-delay: 0.25s; }
-#mobile-menu-overlay.open ul li:nth-child(5) { transition-delay: 0.3s; }
-#mobile-menu-overlay.open ul li:nth-child(6) { transition-delay: 0.35s; }
+}
 
 #mobile-menu-overlay .mt-10 {
     opacity: 0;
@@ -396,7 +394,42 @@
 #mobile-menu-overlay.open .mt-10 {
     opacity: 1;
     transform: translateY(0);
+
 }
+.cascata-list {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .cascata-list li {
+            font-size: 1em;
+            margin-bottom: 10px;
+            opacity: 0; 
+            transform: translateY(20px);
+            animation: fadeInSlideUp 0.6s forwards;
+        }
+
+
+        .cascata-list li:nth-child(1) { animation-delay: 0s; }
+        .cascata-list li:nth-child(2) { animation-delay: 0.2s; }
+        .cascata-list li:nth-child(3) { animation-delay: 0.4s; }
+        .cascata-list li:nth-child(4) { animation-delay: 0.6s; }
+        .cascata-list li:nth-child(5) { animation-delay: 0.8s; }
+        .cascata-list li:nth-child(6) { animation-delay: 1.0s; }
+        .cascata-list li:nth-child(7) { animation-delay: 1.2s; }
+
+
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
 </style>
 </head>
@@ -416,6 +449,8 @@
             <li><a href="#skills" class="hover:text-sky-400 transition-colors text-slate-200 hover:text-sky-400" data-nav-text="menuSkills">Competenze</a></li>
             <li><a href="#contatti" class="hover:text-sky-400 transition-colors text-slate-200 hover:text-sky-400" data-nav-text="menuContatti">Contatti</a></li>
             <li><a href="#feedback" class="hover:text-sky-400 transition-colors text-slate-200 hover:text-sky-400" data-nav-text="menuFeedback">Feedback</a></li>
+            <li><a href="#dove" class="hover:text-sky-400 transition-colors text-slate-200 hover:text-sky-400" data-nav-text="menuDove">Dove mi trovi</a></li>
+
         </ul>
 
         <div class="flex items-center space-x-4">
@@ -448,13 +483,15 @@
         </div>
     </button>
 
-    <ul class="flex flex-col text-center text-white text-3xl font-bold space-y-6">
+    <ul class=" flex flex-col text-center text-white text-3xl font-bold space-y-6 cascata-list" >
         <li><a href="#home" class="hover:text-sky-400 transition-colors block" data-nav-text="menuHome">Home</a></li>
         <li><a href="#progetti" class="hover:text-sky-400 transition-colors block" data-nav-text="menuProgetti">Progetti</a></li>
         <li><a href="#about" class="hover:text-sky-400 transition-colors block" data-nav-text="menuAbout">Chi Sono</a></li>
         <li><a href="#skills" class="hover:text-sky-400 transition-colors block" data-nav-text="menuSkills">Competenze</a></li>
         <li><a href="#contatti" class="hover:text-sky-400 transition-colors block" data-nav-text="menuContatti">Contatti</a></li>
         <li><a href="#feedback" class="hover:text-sky-400 transition-colors block" data-nav-text="menuFeedback">Feedback</a></li>
+        <li><a href="#dove" class="hover:text-sky-400 transition-colors block" data-nav-text="menuDove">Dove sono</a></li>
+
     </ul>
 
     <div class="mt-10 flex space-x-6">
@@ -465,8 +502,9 @@
                 </svg>
             </button>
             <button id="btn-tema" aria-label="Cambia tema" class="bg-slate-700/40 hover:bg-slate-700/70 text-slate-200 rounded-full w-10 h-10 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400 dark:bg-sky-400 dark:text-slate-900">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                <svg id="icon-tema1" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2m11-11h-2M3 12H1m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />
                 </svg>
             </button>
         </div>
@@ -480,6 +518,7 @@
     </section>
     </br >
     <section id="progetti" class="space-y-10">
+        </br >
         </br >
         <h2 class="text-4xl font-bold text-center mb-8" data-translate="progettiTitolo">Progetti</h2>
         <div class="flex flex-wrap justify-center gap-8">
@@ -498,7 +537,9 @@
         </div>
     </section>
     </br >
+    </br >
     <section id="about" class="max-w-4xl mx-auto text-center px-4">
+        </br >
         </br >
         </br >
         </br >
@@ -507,6 +548,7 @@
     </section>
     </br >
     <section id="skills" class="max-w-4xl mx-auto text-center px-4 py-12">
+        </br >
         </br >
         <h2 class="text-4xl font-bold mb-8" data-translate="skillsTitle">Le Mie Competenze</h2>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-lg">
@@ -549,6 +591,7 @@
         </br >
         </br >
         </br >
+        </br >
         <h2 class="text-4xl font-bold mb-6" data-translate="contattiTitolo">Contatti</h2>
         <p class="mb-3" data-translate="contattiDescrizione"></p>
         <ul class="social-links flex justify-center space-x-4">
@@ -575,8 +618,9 @@
     <section id="feedback" class="py-12">
         </br >
         </br >
+        </br >
         <div class="max-w-xl mx-auto bg-white dark:bg-neutral-800 p-6 rounded shadow-md transition-colors duration-700">
-            <h3 class="text-xl font-bold mb-4" data-translate="feedbackTitle">Mandami un feedback!</h3>
+            <h3 class="text-xl font-bold mb-4" style="color:"#29cce5" data-translate="feedbackTitle">Mandami un feedback!</h3>
             <form id="feedback-form" action="https://formspree.io/f/manjgjzw" method="POST">
                 <label for="email" class="block mt-4" data-translate="emailOptional">La tua email (facoltativa):</label>
                 <input type="email" id="email" name="email" placeholder="nome@example.com" class="w-full p-2 mt-1 border border-gray-300 rounded dark:text-white dark:bg-neutral-700 transition-colors duration-700">
@@ -592,12 +636,19 @@
                 </div>
                 <input type="hidden" name="stars" id="star-value" value="0" />
                 <div class="g-recaptcha mt-4" data-sitekey="6LeD93orAAAAALdd3FMOxTBX7Gclibevbh2hBwa6"></div>
-                <button type="submit" data-translate="sendFeedback" class="w-full mt-6 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Invia feedback</button>
+                <button type="submit" data-translate="sendFeedback" class="w-full mt-6 bg-sky-400 text-white py-2 px-4 rounded hover:bg-sky-600">Invia feedback</button>
             </form>
             <p id="feedback-response" class="mt-4"></p>
         </div>
     </section>
-   
+    <section id="dove" class="py-12">
+        </br >
+        </br >
+        <h2 class="text-4xl font-bold text-center mb-8" data-translate="menuDove">Mappa</h2>
+        <div class="mt-3 max-w-xl mx-auto ">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11338.967695030058!2d10.99682989999999!3d44.72487835000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477feb835169e7ad%3A0xef20a43ac9ecad1d!2s41030%20Bastiglia%20MO!5e0!3m2!1sit!2sit!4v1752647607690!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
       <section class="py-12 text-center text-sm">
         <h3 data-translate="infoTitle" class="font-semibold"><em>Informazioni</em></h3>
         <a href="COOKIES.html" target="_blank" class="text-blue-600 underline">Informativa sui cookies</a>
@@ -605,7 +656,7 @@
         <footer class="mt-4">&copy; 2025 Lorenzo Bergamini. Tutti i diritti riservati.</footer>
     </section>
 
-<a href="#home" class="fixed bottom-6 right-6 bg-blue-400 text-white px-4 py-2 rounded-full shadow-lg font-bold z-50" style="z-index: 9999;" data-translate="backToTop">Torna all'inizio</a>
+<a href="#home" class="fixed bottom-6 right-6 bg-sky-400 text-white px-4 py-2 rounded-full shadow-lg font-bold z-50" style="z-index: 9999;" data-translate="backToTop">Torna all'inizio</a>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -617,6 +668,7 @@
         
         const htmlElement = document.documentElement;
         const iconTema = document.getElementById('icon-tema');
+        const iconTema1 = document.getElementById('icon-tema1');
         const labelLingua = document.getElementById('lingua-label');
         const skillItems = document.querySelectorAll('.skill-item');
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]|:;"<>,.?/~';
@@ -726,6 +778,9 @@
                 iconTema.innerHTML = `
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
                 `;
+                iconTema1.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+                `;
             } else {
                 htmlElement.setAttribute('data-theme', 'light');
                 document.body.classList.remove('bg-slate-900', 'text-slate-200');
@@ -773,6 +828,10 @@
                     <circle cx="12" cy="12" r="5" />
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2m11-11h-2M3 12H1m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />
                 `;
+                iconTema1.innerHTML = `
+                    <circle cx="12" cy="12" r="5" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2m11-11h-2M3 12H1m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />
+                `;
             }
             localStorage.setItem('tema', tema);
             caricaParticelle(tema);
@@ -814,7 +873,8 @@
                 backToTop: 'Torna all\'inizio',
                 progetto1Desc: 'Gioco PacMan creato in Java',
                 progetto2Desc: 'Esempio di sito web Responsive',
-                progetto3Desc: 'Link al mio profilo Github'
+                progetto3Desc: 'Link al mio profilo Github',
+                menuDove: 'Mappa'
             },
             en: {
                 homeTitolo: 'Hi, I am <span class="text-sky-400 animate-text-glow">Lorenzo Bergamini</span>',
@@ -854,7 +914,8 @@
                 backToTop: 'Back to top',
                 progetto1Desc: 'PacMan game created in Java',
                 progetto2Desc: 'Example of a Responsive Website',
-                progetto3Desc: 'Link to my Github profile'
+                progetto3Desc: 'Link to my Github profile',
+                menuDove: 'Map'
             }
         };
 
@@ -968,6 +1029,7 @@
                     aggiornaTesti(nuovaLingua);
                 }
             }
+            
         });
 
         const savedTheme = localStorage.getItem('tema');
@@ -1023,7 +1085,7 @@
                 formData.append('g-recaptcha-response', recaptchaResponse);
 
                 if (!recaptchaResponse) {
-                    feedbackResponse.textContent = 'Per favori, completa il reCAPTCHA.';
+                    feedbackResponse.textContent = 'Per favore, completa il reCAPTCHA.';
                     feedbackResponse.style.color = 'red';
                     return;
                 }
@@ -1114,28 +1176,10 @@
         navLinks.forEach(link => {
             link.addEventListener('click', () => toggleMobileMenu(false));
         });
-    });
-    document.getElementById('btn-tema').addEventListener('click', function() {
-    const body = document.body;
-    const iconTema = document.getElementById('icon-tema');
-
-    const sunIconSVG = `
-        <circle cx="12" cy="12" r="5" />
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2m11-11h-2M3 12H1m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />
-    `;
-
-    const moonIconSVG = `
-        <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-    `;
-
-    body.classList.toggle('dark-theme');
-
-    if (body.classList.contains('dark-theme')) {
-        iconTema.innerHTML = moonIconSVG;
-    } else {
-        iconTema.innerHTML = sunIconSVG;
-    }
-});
+        
+    }); 
+    
+    
 </script>
 </body>
 </html>
